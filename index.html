@@ -71,74 +71,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-promise" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/16/promise/" class="article-date">
-  <time class="dt-published" datetime="2023-03-16T08:16:14.000Z" itemprop="datePublished">2023-03-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/16/promise/">promise</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>1.Promise的状态</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">三种状态:</span><br><span class="line">      pending（进行中，初始状态)</span><br><span class="line"></span><br><span class="line">      fulfilled（成功状态，也叫resolved)</span><br><span class="line"></span><br><span class="line">      rejected（失败状态）</span><br></pre></td></tr></table></figure>
-<p>Promise只有两个过程（状态）：</p>
-<pre><code>    （1）pending -&gt; fulfilled : Resolved（已完成）
-
-    （1）pending -&gt; rejected：Rejected（已拒绝）
-</code></pre>
-<p>通过函数resolve将状态转为fulfilled，函数reject将状态转为rejected，状态一经改变就不可以再次变化。</p>
-<p>一个 promise 对象只能改变一次， 无论变为成功还是失败, 都会有一个结果数据 ，成功的结果数据一般称为 value, 失败的结果数据一般称为 reason。</p>
-<p> Promise的基本使用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> doDelay(<span class="built_in">timeout</span>)&#123;</span><br><span class="line">    // 创建一个新的promise对象并返回</span><br><span class="line">    <span class="built_in">return</span> new Promise((resolve, reject) =&gt; &#123; // 执行器函数</span><br><span class="line">         // 执行异步操作任务</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">            const time = Date.now()</span><br><span class="line">            // 如果当前时间是偶数代表成功，否则失败</span><br><span class="line">            if (time % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">                // 如果成功，调用resolve(value)</span><br><span class="line">                resolve(&#x27;成功的数据，time=&#x27; + time)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 如果失败，调用reject(reason)</span><br><span class="line">                reject(&#x27;失败的数据，time=&#x27; + time)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, timeout);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">let promise = doDelay(<span class="number">1000</span>)</span><br><span class="line">//.then() 和执行器(executor)同步执行，.then() 中的回调函数异步执行</span><br><span class="line">promise.then(</span><br><span class="line">    value =&gt; &#123; // 接收得到成功的value数据 onResolved</span><br><span class="line">        console.log(&#x27;成功的回调&#x27;, value)  // 成功的回调 成功的数据</span><br><span class="line">    &#125;,</span><br><span class="line">    reason =&gt; &#123; // 接收得到失败的reason数据 onRejected</span><br><span class="line">        console.log(&#x27;失败的回调&#x27;, reason)    // 失败的回调 失败的数据</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>Promise.prototype.then 方法：p.then(onResolved, onRejected)</p>
-<pre><code>    指定两个回调（成功+失败）
-
-    onResolved 函数：成功的回调函数 (value) =&gt; &#123;&#125;
-
-    onRejected 函数：失败的回调函数 (reason) =&gt; &#123;&#125;
-
-    说明：指定用于得到成功 value 的成功回调和用于得到失败 reason 的失败回调，返回一个新的 promise 对象。
-</code></pre>
-<p>Promise.prototype.catch 方法：p.catch(onRejected)</p>
-<pre><code>    指定失败的回调
-
-    onRejected 函数：失败的回调函数 (reason) =&gt; &#123;&#125;
-</code></pre>
-<p>Promise.all 方法：Promise.all(iterable)</p>
-<pre><code>    iterable：包含 n 个 promise 的可迭代对象，如 Array 或 String
-
-    说明：返回一个新的 promise，只有所有的 promise 都成功才成功，只要有一个失败了就直接失败。
-</code></pre>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/16/promise/" data-id="clfaub3hb0000k8uj82ynfqgw" data-title="promise" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-改名" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/03/16/%E6%94%B9%E5%90%8D/" class="article-date">
@@ -228,6 +160,74 @@
 
 
   
+    <article id="post-promise" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2013/11/06/promise/" class="article-date">
+  <time class="dt-published" datetime="2013-11-05T22:40:12.000Z" itemprop="datePublished">2013-11-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2013/11/06/promise/">promise</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1.Promise的状态</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">三种状态:</span><br><span class="line">      pending（进行中，初始状态)</span><br><span class="line"></span><br><span class="line">      fulfilled（成功状态，也叫resolved)</span><br><span class="line"></span><br><span class="line">      rejected（失败状态）</span><br></pre></td></tr></table></figure>
+<p>Promise只有两个过程（状态）：</p>
+<pre><code>    （1）pending -&gt; fulfilled : Resolved（已完成）
+
+    （1）pending -&gt; rejected：Rejected（已拒绝）
+</code></pre>
+<p>通过函数resolve将状态转为fulfilled，函数reject将状态转为rejected，状态一经改变就不可以再次变化。</p>
+<p>一个 promise 对象只能改变一次， 无论变为成功还是失败, 都会有一个结果数据 ，成功的结果数据一般称为 value, 失败的结果数据一般称为 reason。</p>
+<p> Promise的基本使用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">function</span> doDelay(<span class="built_in">timeout</span>)&#123;</span><br><span class="line">    // 创建一个新的promise对象并返回</span><br><span class="line">    <span class="built_in">return</span> new Promise((resolve, reject) =&gt; &#123; // 执行器函数</span><br><span class="line">         // 执行异步操作任务</span><br><span class="line">        setTimeout(() =&gt; &#123;</span><br><span class="line">            const time = Date.now()</span><br><span class="line">            // 如果当前时间是偶数代表成功，否则失败</span><br><span class="line">            if (time % <span class="number">2</span> === <span class="number">0</span>) &#123;</span><br><span class="line">                // 如果成功，调用resolve(value)</span><br><span class="line">                resolve(&#x27;成功的数据，time=&#x27; + time)</span><br><span class="line">            &#125; else &#123;</span><br><span class="line">                // 如果失败，调用reject(reason)</span><br><span class="line">                reject(&#x27;失败的数据，time=&#x27; + time)</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;, timeout);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;</span><br><span class="line">let promise = doDelay(<span class="number">1000</span>)</span><br><span class="line">//.then() 和执行器(executor)同步执行，.then() 中的回调函数异步执行</span><br><span class="line">promise.then(</span><br><span class="line">    value =&gt; &#123; // 接收得到成功的value数据 onResolved</span><br><span class="line">        console.log(&#x27;成功的回调&#x27;, value)  // 成功的回调 成功的数据</span><br><span class="line">    &#125;,</span><br><span class="line">    reason =&gt; &#123; // 接收得到失败的reason数据 onRejected</span><br><span class="line">        console.log(&#x27;失败的回调&#x27;, reason)    // 失败的回调 失败的数据</span><br><span class="line">    &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>Promise.prototype.then 方法：p.then(onResolved, onRejected)</p>
+<pre><code>    指定两个回调（成功+失败）
+
+    onResolved 函数：成功的回调函数 (value) =&gt; &#123;&#125;
+
+    onRejected 函数：失败的回调函数 (reason) =&gt; &#123;&#125;
+
+    说明：指定用于得到成功 value 的成功回调和用于得到失败 reason 的失败回调，返回一个新的 promise 对象。
+</code></pre>
+<p>Promise.prototype.catch 方法：p.catch(onRejected)</p>
+<pre><code>    指定失败的回调
+
+    onRejected 函数：失败的回调函数 (reason) =&gt; &#123;&#125;
+</code></pre>
+<p>Promise.all 方法：Promise.all(iterable)</p>
+<pre><code>    iterable：包含 n 个 promise 的可迭代对象，如 Array 或 String
+
+    说明：返回一个新的 promise，只有所有的 promise 都成功才成功，只要有一个失败了就直接失败。
+</code></pre>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2013/11/06/promise/" data-id="clfaub3hb0000k8uj82ynfqgw" data-title="promise" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
 
 
 </section>
@@ -246,7 +246,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li></ul>
     </div>
   </div>
 
@@ -259,15 +259,15 @@
       <ul>
         
           <li>
-            <a href="/2023/03/16/promise/">promise</a>
-          </li>
-        
-          <li>
             <a href="/2023/03/16/%E6%94%B9%E5%90%8D/">chenge-first-blog</a>
           </li>
         
           <li>
             <a href="/2023/03/15/hello-world/">Hello World</a>
+          </li>
+        
+          <li>
+            <a href="/2013/11/06/promise/">promise</a>
           </li>
         
       </ul>
