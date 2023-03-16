@@ -71,6 +71,52 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Set与Map" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/16/Set%E4%B8%8EMap/" class="article-date">
+  <time class="dt-published" datetime="2023-03-16T08:35:35.000Z" itemprop="datePublished">2023-03-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/16/Set%E4%B8%8EMap/">Set与Map</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1 Map（字典）<br>官网解释：</p>
+<p>Map 对象保存键值对，并且能够记住键的原始插入顺序。任何值（对象或者原始值）都可以作为一个键或一个值。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.Map 对象这种数据结构和和对象类型，都已键值对的形式存储数据，即 key-vlue 形式。</span><br><span class="line">2.Map 对象存储的数据是有序的，而我们平常使用的对象是无序的，所以通常当我们需要使用对象形式（键值对）存储数据且需要有序时，采用 Map 对象进行存储。</span><br><span class="line">3.Map 对象的键值可以是任意类型，我们平时使用的对象只能使用字符串作为键。</span><br></pre></td></tr></table></figure>
+<p>2 Set（字典）<br>官网解释：</p>
+<p>Set 对象允许你存储任何类型的唯一值，无论是原始值或者是对象引用。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.Set 对象是一个类数组对象，它长得就很像数组。</span><br><span class="line">2.Set 对象存储的值是不重复的，所以我们通常使用它来实现数组去重。</span><br><span class="line">3.Set 对象存储的数据不是键值对的形式，而且它可以存储任何类型的数据。</span><br></pre></td></tr></table></figure>
+
+<p>3.Map和Set区别<br>如果我们学会了它们两者如何使用，或多或少都知道它们的区别在哪里，我们这里为大家总结一下它们的区别要点：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Map和Set查找速度都非常快，时间复杂度为O(1)，而数组查找的时间复杂度为O(n)。</span><br><span class="line">Map对象初始化的值为一个二维数组，Set对象初始化的值为一维数组。</span><br><span class="line">Map对象和Set对象都不允许键重复（可以将Set对象的键想象成值）。</span><br><span class="line">Map对象的键是不能改的，但是值能改，Set对象只能通过迭代器来更改值。</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/16/Set%E4%B8%8EMap/" data-id="clfav4sq60001i0ujat3e12r9" data-title="Set与Map" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-改名" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/03/16/%E6%94%B9%E5%90%8D/" class="article-date">
@@ -97,58 +143,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/16/%E6%94%B9%E5%90%8D/" data-id="clfaub3hg0001k8uj3ta448ag" data-title="chenge-first-blog" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/15/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2023-03-15T07:51:19.354Z" itemprop="datePublished">2023-03-15</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/15/hello-world/">Hello World</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/15/hello-world/" data-id="clfaub3hh0002k8uj3lde9pab" data-title="Hello World" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/16/%E6%94%B9%E5%90%8D/" data-id="clfav4sq80002i0ujf04jbc5i" data-title="chenge-first-blog" class="article-share-link">Share</a>
       
       
       
@@ -216,7 +211,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2013/11/06/promise/" data-id="clfaub3hb0000k8uj82ynfqgw" data-title="promise" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2013/11/06/promise/" data-id="clfav4sq10000i0ujaxvt03yx" data-title="promise" class="article-share-link">Share</a>
       
       
       
@@ -259,11 +254,11 @@
       <ul>
         
           <li>
-            <a href="/2023/03/16/%E6%94%B9%E5%90%8D/">chenge-first-blog</a>
+            <a href="/2023/03/16/Set%E4%B8%8EMap/">Set与Map</a>
           </li>
         
           <li>
-            <a href="/2023/03/15/hello-world/">Hello World</a>
+            <a href="/2023/03/16/%E6%94%B9%E5%90%8D/">chenge-first-blog</a>
           </li>
         
           <li>
