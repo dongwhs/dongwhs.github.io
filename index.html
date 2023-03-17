@@ -71,6 +71,49 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-router-link-和router-view" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/17/router-link-%E5%92%8Crouter-view/" class="article-date">
+  <time class="dt-published" datetime="2023-03-17T08:43:06.000Z" itemprop="datePublished">2023-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/17/router-link-%E5%92%8Crouter-view/">router-link 和router-view</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>router-view与router-link在Vue中相互依存, router-link 对应 html 中的a 标签,但是与a 标签不同的是,跳转的时候并不会刷新页面,</p>
+<p>而router-view 相当于router-link的承载页面,用于展示router-link 的的内容</p>
+<p>router-view是渲染视图的：</p>
+<p>主要是构建 SPA (单页应用) 时，方便渲染你指定路由对应的组件。你可以 router-view 当做是一个容器，它渲染的组件是你使用 vue-router 指定的；<br>路由配置完成后, 就要使用 router-view 进行渲染了 (只要有子路由, 就要用它来渲染)。</p>
+<p>router-view与keep-alive共同使用可以防止重复渲染DOM。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;keep-alive&gt; </span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;keep-alive&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/17/router-link-%E5%92%8Crouter-view/" data-id="clfcauxyb0001zoujcj4fhspk" data-title="router-link 和router-view" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-vue动态组件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" class="article-date">
@@ -104,7 +147,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" data-id="clfc4nuin0002usuj0gvaarcv" data-title="vue动态组件" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" data-id="clfcauxye0002zouj6cjpdzk0" data-title="vue动态组件" class="article-share-link">Share</a>
       
       
       
@@ -150,7 +193,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/16/Set%E4%B8%8EMap/" data-id="clfc4nuie0000usuj5c9a131v" data-title="Set与Map" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/16/Set%E4%B8%8EMap/" data-id="clfcauxyn0003zouj83dqh5l0" data-title="Set与Map" class="article-share-link">Share</a>
       
       
       
@@ -218,7 +261,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2013/11/06/promise/" data-id="clfc4nuil0001usuj2584h3kq" data-title="promise" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2013/11/06/promise/" data-id="clfcauxy00000zouj1jc33vm8" data-title="promise" class="article-share-link">Share</a>
       
       
       
@@ -259,6 +302,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2023/03/17/router-link-%E5%92%8Crouter-view/">router-link 和router-view</a>
+          </li>
         
           <li>
             <a href="/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/">vue动态组件</a>
