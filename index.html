@@ -71,6 +71,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-vue动态组件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2023-03-17T05:45:43.000Z" itemprop="datePublished">2023-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/">vue动态组件</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>什么是动态组件？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过&lt;component&gt; 标签声明一块区域，并预言这块区域将来会被某个组件通过 v-bind:is=<span class="string">&#x27;componentId&#x27;</span> 来填充。</span><br></pre></td></tr></table></figure>
+<p>在 html 里面通过 <component> 声明了一块区域，并通过 :is&#x3D;”componentId”绑定了 componentId，意为当前的 <component>将会被 componentId渲染。<br>这样一种通过<component> 来声明区域，通过v-bind:is来绑定组件（componentId），然后通过改变组件（componentId）指向来更改展示内容的方式就可以称为动态组件。</p>
+<p>默认情况下，vue切换动态组件时无法保持组件的状态。此时可以使用 vue 内置的 组件保持动态组件的状态，示例代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;component :is=<span class="string">&quot;comName&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+<p>keep-alive 对应的生命周期函数<br>当组件被缓存时，会自动触发组件的 deactivated 生命周期函数。当组件被激活时，会自动触发组件的 activated 生命周期函数。<br>keep-alive 的 include 属性</p>
+<p>include 属性用来指定：只有名称匹配的组件会被缓存。多个组件名之间使用英文的逗号分隔：</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" data-id="clfc4nuin0002usuj0gvaarcv" data-title="vue动态组件" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-Set与Map" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2023/03/16/Set%E4%B8%8EMap/" class="article-date">
@@ -105,45 +150,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/16/Set%E4%B8%8EMap/" data-id="clfav4sq60001i0ujat3e12r9" data-title="Set与Map" class="article-share-link">Share</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-改名" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2023/03/16/%E6%94%B9%E5%90%8D/" class="article-date">
-  <time class="dt-published" datetime="2023-03-16T08:13:33.000Z" itemprop="datePublished">2023-03-16</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2023/03/16/%E6%94%B9%E5%90%8D/">chenge-first-blog</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2023/03/16/%E6%94%B9%E5%90%8D/" data-id="clfav4sq80002i0ujf04jbc5i" data-title="chenge-first-blog" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2023/03/16/Set%E4%B8%8EMap/" data-id="clfc4nuie0000usuj5c9a131v" data-title="Set与Map" class="article-share-link">Share</a>
       
       
       
@@ -211,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2013/11/06/promise/" data-id="clfav4sq10000i0ujaxvt03yx" data-title="promise" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2013/11/06/promise/" data-id="clfc4nuil0001usuj2584h3kq" data-title="promise" class="article-share-link">Share</a>
       
       
       
@@ -254,11 +261,11 @@
       <ul>
         
           <li>
-            <a href="/2023/03/16/Set%E4%B8%8EMap/">Set与Map</a>
+            <a href="/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/">vue动态组件</a>
           </li>
         
           <li>
-            <a href="/2023/03/16/%E6%94%B9%E5%90%8D/">chenge-first-blog</a>
+            <a href="/2023/03/16/Set%E4%B8%8EMap/">Set与Map</a>
           </li>
         
           <li>

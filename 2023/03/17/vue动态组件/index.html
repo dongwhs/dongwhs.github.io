@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>vue动态组件 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="什么是动态组件？ 1通过&lt;component&gt; 标签声明一块区域，并预言这块区域将来会被某个组件通过 v-bind:is&#x3D;&amp;#x27;componentId&amp;#x27; 来填充。 在 html 里面通过  声明了一块区域，并通过 :is&#x3D;”componentId”绑定了 componentId，意为当前的 将会被 componentId渲染。这样一种通过 来声明区域，通过v-">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue动态组件">
+<meta property="og:url" content="http://example.com/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="什么是动态组件？ 1通过&lt;component&gt; 标签声明一块区域，并预言这块区域将来会被某个组件通过 v-bind:is&#x3D;&amp;#x27;componentId&amp;#x27; 来填充。 在 html 里面通过  声明了一块区域，并通过 :is&#x3D;”componentId”绑定了 componentId，意为当前的 将会被 componentId渲染。这样一种通过 来声明区域，通过v-">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-03-17T05:45:43.000Z">
+<meta property="article:modified_time" content="2023-03-17T05:56:23.963Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@0.0.71/index.min.css">
+
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-vue动态组件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" class="article-date">
+  <time class="dt-published" datetime="2023-03-17T05:45:43.000Z" itemprop="datePublished">2023-03-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      vue动态组件
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>什么是动态组件？</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">通过&lt;component&gt; 标签声明一块区域，并预言这块区域将来会被某个组件通过 v-bind:is=<span class="string">&#x27;componentId&#x27;</span> 来填充。</span><br></pre></td></tr></table></figure>
+<p>在 html 里面通过 <component> 声明了一块区域，并通过 :is&#x3D;”componentId”绑定了 componentId，意为当前的 <component>将会被 componentId渲染。<br>这样一种通过<component> 来声明区域，通过v-bind:is来绑定组件（componentId），然后通过改变组件（componentId）指向来更改展示内容的方式就可以称为动态组件。</p>
+<p>默认情况下，vue切换动态组件时无法保持组件的状态。此时可以使用 vue 内置的 组件保持动态组件的状态，示例代码如下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;keep-alive&gt;</span><br><span class="line">  &lt;component :is=<span class="string">&quot;comName&quot;</span>&gt;&lt;/component&gt;</span><br><span class="line">&lt;/keep-alive&gt;</span><br></pre></td></tr></table></figure>
+<p>keep-alive 对应的生命周期函数<br>当组件被缓存时，会自动触发组件的 deactivated 生命周期函数。当组件被激活时，会自动触发组件的 activated 生命周期函数。<br>keep-alive 的 include 属性</p>
+<p>include 属性用来指定：只有名称匹配的组件会被缓存。多个组件名之间使用英文的逗号分隔：</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/" data-id="clfc4nuin0002usuj0gvaarcv" data-title="vue动态组件" class="article-share-link">Share</a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2023/03/16/Set%E4%B8%8EMap/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Set与Map</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2023/03/">March 2023</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/11/">November 2013</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2023/03/17/vue%E5%8A%A8%E6%80%81%E7%BB%84%E4%BB%B6/">vue动态组件</a>
+          </li>
+        
+          <li>
+            <a href="/2023/03/16/Set%E4%B8%8EMap/">Set与Map</a>
+          </li>
+        
+          <li>
+            <a href="/2013/11/06/promise/">promise</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2023 John Doe<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.4.1.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
